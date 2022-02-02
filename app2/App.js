@@ -13,44 +13,39 @@ import {
   View,
   Button,
   TouchableOpacity,
+  Image
 } from 'react-native';
 
 const Estilos = {
   principal: {
-    flex: 1,
-    backgroundColor: 'cornflowerblue'
+    backgroundColor: 'cornflowerblue',
+    paddingTop: 40,
   },
 
-  botao: {
-    backgroundColor: '#48BBEC',
-    padding: 10,
-    borderColor: '#1d8eb8', 
-    borderWidth: 3,
-    borderRadius: 8,
-  },
-  textoBotao: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-    alignSelf: 'center'
+  imagem: {
+    justifyContent: 'flex-end',
+    padding: 5
   }
+  
+
+  
 
 }
 
-const botaoPressionado = () => {
-  alert('Botão pressionado');
-}
 
 const App: () => Node = () => {
-  const { principal, botao, textoBotao } = Estilos;
+  const { principal, imagem } = Estilos;
   return (
     <View style={ principal }>
       
-      <TouchableOpacity style = { botao }
-      onPress={botaoPressionado}>
-        <Text style = { textoBotao }> Clique Aqui </Text>
-      </TouchableOpacity>
-
+      <Image style={imagem} source={ require('./imgs/uvas.png')} >
+        <Text>Legenda para a foto</Text>
+      </Image> {/* Não é mais suportado, Image não pode ter componentes filhos*/}
+      
+      <Image source={ {uri: 'https://avatars.githubusercontent.com/u/38481701?v=4'}} 
+              style={{width:300, height: 300}}
+      />
+      
     </View>
   
   );
