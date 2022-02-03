@@ -8,12 +8,14 @@
 
 import React from 'react';
 import type {Node} from 'react';
+import { Component } from 'react/cjs/react.production.min';
 import {
   Button,
   Text,
   View,
 } from 'react-native';
-import { Component } from 'react/cjs/react.production.min';
+import Topo from './src/componentes/Topo'
+
 
 class App3 extends Component{
   constructor(props){
@@ -64,6 +66,11 @@ class App3 extends Component{
   render(){
     return(
       <View>
+
+        <Topo></Topo>
+        <View></View>
+        <View></View>
+
         <Text>Escolha do computador: {this.state.escolhaComputador}</Text>
         <Text>Escolha do usuário: {this.state.escolhaUsuario}</Text>
         <Text>Resultado: {this.state.resultado}</Text>
@@ -74,6 +81,8 @@ class App3 extends Component{
     );
   }
 }
+
+
 
 
 const App: () => Node = () => {
