@@ -9,18 +9,41 @@
 import React from 'react';
 import type {Node} from 'react';
 import {
+  Button,
   Text,
   View,
 } from 'react-native';
 import { Component } from 'react/cjs/react.production.min';
 
 class MeuComponente extends Component{
+  
   render(){
     return (
       <View>
-        <Text>{this.props.propriedade1}</Text>
-        <Text>{this.props.xyz}</Text>
-        <Text>{this.props.p}</Text>
+        <Text>{this.props.teste}</Text>
+      </View>
+    );
+  }
+}
+
+class AppComponente extends Component{
+  constructor(props){
+    super(props);
+
+    this.state = {texto: 'Texto teste 2'}
+  }
+
+  alteraTexto(){
+    this.setState({texto : 'Outra coisa'});
+  }
+
+  render(){
+    return(
+      <View>
+        <MeuComponente teste={this.state.texto}></MeuComponente>
+        <Button 
+        title='botão'
+        onPress={ () => {this.alteraTexto()}}/>
       </View>
     );
   }
@@ -28,8 +51,11 @@ class MeuComponente extends Component{
 
 const App: () => Node = () => {
   return (
-    <MeuComponente propriedade1='Banana' xyz='Abacaxi' p='Uva'/>
-  );
+    <View>
+      <AppComponente></AppComponente>
+      
+    </View> 
+    );
 };
 
 
