@@ -13,38 +13,67 @@ import {
   View,
   Button,
   TouchableOpacity,
-  Image
+  Image,
+  Alert
 } from 'react-native';
 
 const Estilos = {
   principal: {
-    backgroundColor: 'cornflowerblue',
-    paddingTop: 40,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
-  imagem: {
-    justifyContent: 'flex-end',
-    padding: 5
+  botao: {
+    backgroundColor: '#538530',
+    paddingVertical: 10,
+    paddingHorizontal: 40,
+    marginTop: 20,
+  },
+  
+  textoBotao: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   }
+
   
 
   
 
 }
 
+const gerarNovaFrase = () => {
+  var numeroAleatorio = Math.random();
+  numeroAleatorio = numeroAleatorio * 5;
+  numeroAleatorio = Math.floor(numeroAleatorio);
+
+  //frases
+  var frases = Array();
+  frases[0] = 'aa';
+  frases[1] = 'bb';
+  frases[2] = 'cc';
+  frases[3] = 'dd';
+  frases[4] = 'ee';
+
+  var fraseEscolhida = frases[numeroAleatorio];
+
+  Alert.alert(fraseEscolhida);
+
+}
 
 const App: () => Node = () => {
-  const { principal, imagem } = Estilos;
+  const { principal, botao, textoBotao} = Estilos;
   return (
     <View style={ principal }>
       
-      <Image style={imagem} source={ require('./imgs/uvas.png')} >
-        <Text>Legenda para a foto</Text>
-      </Image> {/* Não é mais suportado, Image não pode ter componentes filhos*/}
+      <Image source={require('./imgs/uvas.png')} />
       
-      <Image source={ {uri: 'https://avatars.githubusercontent.com/u/38481701?v=4'}} 
-              style={{width:300, height: 300}}
-      />
+      <TouchableOpacity 
+        onPress={gerarNovaFrase}
+        style={botao}>
+        <Text style={textoBotao}>Nova Frase</Text>
+      </TouchableOpacity>
       
     </View>
   
