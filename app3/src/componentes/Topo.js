@@ -3,13 +3,15 @@ import { Component } from 'react/cjs/react.production.min';
 import {
     View,
     Image,
+    Text,
   } from 'react-native';
 
-class Topo extends Component{
+export default class Topo extends Component{
     render(){
         return(
         <View>
-            <Image source={require('D:/reactnative/app3/src/componentes/imgs/jokenpo.png')}></Image>
+            <Image source={require('D:/reactnative/app3/src/componentes/imgs/jokenpo.png')}>
+            </Image>
         </View>
         );
     }
