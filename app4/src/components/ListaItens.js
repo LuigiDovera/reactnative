@@ -9,8 +9,7 @@ import Itens from './Itens';
 export default class ListaItens extends Component {
     
     componentDidMount(){
-        //axios.get('https://jorgesantana.net.br/recursos/dmairr/api/itens.html')
-          //  .then( response => {console.log(response);});
+
     }
     
     render(){
