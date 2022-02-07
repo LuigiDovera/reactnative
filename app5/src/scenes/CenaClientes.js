@@ -6,6 +6,9 @@ import {
     StyleSheet,
     Text,
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 import BarraNavegacao  from '@components/BarraNavegacao'
 
@@ -14,7 +17,7 @@ const cliente1 = require('@imgs/cliente1.png');
 const cliente2 = require('@imgs/cliente2.png');
 
 
-export default class App4 extends Component {
+export default class CenaClientes extends Component {
     
     render(){
         return(

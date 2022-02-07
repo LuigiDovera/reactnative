@@ -4,7 +4,11 @@ import {
     StatusBar,
     Image,
     StyleSheet,
+    TouchableOpacity,
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 
 import BarraNavegacao  from '@components/BarraNavegacao'
 
@@ -15,9 +19,8 @@ const menuEmpresa = require('@imgs/menu_empresa.png');
 const menuServico = require('@imgs/menu_servico.png');
 
 
-export default class App4 extends Component {
+export default function CenaPrincipal({ navigation })  {
     
-    render(){
         return(
             <View>
                 <StatusBar
@@ -31,7 +34,11 @@ export default class App4 extends Component {
 
                 <View style={styles.menu}>
                     <View style={styles.menuGrupo}>
-                        <Image style={styles.imgMenu} source={menuCliente}/>
+                        <TouchableOpacity
+                            onPress={ () => navigation.navigate('Clientes')}>
+                            <Image style={styles.imgMenu} source={menuCliente}/>
+                        </TouchableOpacity>
+                        
                         <Image style={styles.imgMenu} source={menuContato}/>
                     </View>    
 
@@ -42,7 +49,6 @@ export default class App4 extends Component {
                 </View>
             </View>
         );
-    }
 }
 
 const styles = StyleSheet.create({

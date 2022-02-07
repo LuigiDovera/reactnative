@@ -8,13 +8,31 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import CenaPrincipal from '@scenes/CenaClientes';
+import CenaPrincipal from '@scenes/CenaPrincipal';
+import CenaClientes from '@scenes/CenaClientes';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
   
   return (
-    <CenaPrincipal/>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName = 'Principal'>
+
+        <Stack.Screen
+          name = 'Principal'
+          component = {CenaPrincipal}
+        />
+
+        <Stack.Screen
+          name = 'Clientes'
+          component = {CenaClientes}
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
